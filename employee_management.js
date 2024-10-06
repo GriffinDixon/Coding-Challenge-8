@@ -93,4 +93,4 @@ console.log(engineeringManager.getDetails()); // Output: Charlie is a Engineerin
 console.log(marketingManager.getDetails());   // Output: Diana is a Marketing Manager in the Marketing department with a salary of $130000 and a bonus of $25000.
 
 // I put task 4 into where I did task 2 to make things easier for me. You can locate task 4 starting on line 39
-// Task 5:
+// Task 5: I'll take the L on this one. 
