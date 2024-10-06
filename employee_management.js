@@ -36,6 +36,15 @@ class Department {
         return this.employees.reduce((total, employee) => total + employee.salary, 0);
     }
 }
+    // Task 4: Method to calculate total salary plus bonuses
+    calculateTotalSalaryWithBonus() {
+        return this.employees.reduce((total, employee) => {
+            if (employee instanceof Manager) {
+                return total + employee.salary + employee.bonus; // Add salary and bonus for managers
+            }
+            return total + employee.salary; // Add salary for regular employees
+        }, 0);}
+    
 
 // Example usage
 const engineering = new Department("Engineering");
@@ -54,9 +63,12 @@ engineering.addEmployee(charlie);
 marketing.addEmployee(bob);
 marketing.addEmployee(diana);
 
-// Calculating total salary for each department
+// Calculating total salary 
 console.log(`Total salary for Engineering: $${engineering.getDepartmentSalary()}`); // Output: Total salary for Engineering: $200000
+console.log(`Total salary with bonuses for Engineering: $${engineering.calculateTotalSalaryWithBonus()}`);
+
 console.log(`Total salary for Marketing: $${marketing.getDepartmentSalary()}`);     // Output: Total salary for Marketing: $205000
+console.log(`Total salary with bonuses for Marketing: $${marketing.calculateTotalSalaryWithBonus()}`);
 
 // Task 3: Create a Manager Class that Inherits from Employee
 
@@ -79,3 +91,6 @@ const marketingManager = new Manager("Diana", 130000, "Marketing Manager", "Mark
 // Console log
 console.log(engineeringManager.getDetails()); // Output: Charlie is a Engineering Manager in the Engineering department with a salary of $120000 and a bonus of $20000.
 console.log(marketingManager.getDetails());   // Output: Diana is a Marketing Manager in the Marketing department with a salary of $130000 and a bonus of $25000.
+
+// I put task 4 into where I did task 2 to make things easier for me. You can locate task 4 starting on line 39
+// Task 5:
