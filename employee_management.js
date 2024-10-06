@@ -57,3 +57,25 @@ marketing.addEmployee(diana);
 // Calculating total salary for each department
 console.log(`Total salary for Engineering: $${engineering.getDepartmentSalary()}`); // Output: Total salary for Engineering: $200000
 console.log(`Total salary for Marketing: $${marketing.getDepartmentSalary()}`);     // Output: Total salary for Marketing: $205000
+
+// Task 3: Create a Manager Class that Inherits from Employee
+
+class Manager extends Employee {
+    constructor(name, salary, position, department, bonus) {
+        super(name, salary, position, department); // Call the parent class (Employee) constructor
+        this.bonus = bonus;                        
+    }
+
+    // Override the getDetails method to include the bonus
+    getDetails() {
+        return `${this.name} is a ${this.position} in the ${this.department} department with a salary of $${this.salary} and a bonus of $${this.bonus}.`;
+    }
+}
+
+// Example usage
+const engineeringManager = new Manager("Charlie", 120000, "Engineering Manager", "Engineering", 20000);
+const marketingManager = new Manager("Diana", 130000, "Marketing Manager", "Marketing", 25000);
+
+// Console log
+console.log(engineeringManager.getDetails()); // Output: Charlie is a Engineering Manager in the Engineering department with a salary of $120000 and a bonus of $20000.
+console.log(marketingManager.getDetails());   // Output: Diana is a Marketing Manager in the Marketing department with a salary of $130000 and a bonus of $25000.
